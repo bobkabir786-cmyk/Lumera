@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumera | Timeless Glow. Effortless Beauty.</title>
+    <style>
+        /* Premium Skincare CSS Variables */
+        :root {
+            --primary-blue: #bacbd8;      
+            --dark-blue: #2c3e50;         
+            --accent-gold: #c5a880;       
+            --text-dark: #2c3e50;
+            --text-muted: #7f8c8d;
+            --white: #ffffff;
+            --bg-base: #fcfcfd;           
+            --card-shadow: 0 12px 35px rgba(44, 62, 80, 0.05); 
+            --transition-speed: 0.4s;     
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', 'Optima', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            /* 
+               UPDATED RULE: Instead of a solid background color, 
+               this creates a multi-layer background with a subtle, 
+               transparent watermark image across the entire site.
+               The light-gray gradient layer with 95% opacity ensures 
+               the watermark is "less visible" and doesn't hinder readability.
+            */
+            background: linear-gradient(rgba(252, 252, 253, 0.95), rgba(252, 252, 253, 0.95)),
+                        url('ChatGPT Image Jun 17, 2026, 07_39_31 PM.png') center/cover no-repeat;
+            color: var(--text-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Refined Top Announcement Bar */
+        .announcement-bar {
+            background-color: var(--text-dark);
+            color: var(--accent-gold);
+            text-align: center;
+            padding: 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Minimalist Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 6%;
+        }
+
+        .brand-logo img {
+            height: 45px;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            transition: color var(--transition-speed);
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section with Offer Overlay */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('WhatsApp Image 2026-06-17 at 10.19.39 AM.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-overlay-box {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 50px 60px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .hero-tagline {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-offer-heading {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .hero-offer-details {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+        }
+
+        .hero-cta:hover {
+            background-color: var(--accent-gold);
+            color: var(--white);
+        }
+
+        /* Featured Video Section */
+        .video-showcase {
+            padding: 100px 5% 80px;
+            background: transparent; /* Changed to allow watermark background through */
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            margin-bottom: 50px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .video-container {
+            max-width: 850px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Our Story Section */
+        .our-story {
+            padding: 90px 5%;
+            background-color: rgba(250, 251, 252, 0.7); /* Reduced opacity for watermark effect */
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-tagline {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+        }
+
+        .story-content {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .story-content strong {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* The Science Section */
+        .science-section {
+            padding: 100px 5%;
+            background-color: rgba(255, 255, 255, 0.6); /* Reduced opacity for watermark effect */
+            text-align: center;
+        }
+
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 50px auto 0;
+        }
+
+        .science-card {
+            padding: 40px 30px;
+            background: rgba(252, 252, 253, 0.8); /* Semi-transparent card background */
+            box-shadow: var(--card-shadow);
+            border-top: 3px solid var(--accent-gold);
+            text-align: left;
+            transition: transform var(--transition-speed);
+        }
+
+        .science-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .science-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .science-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Product Grid Sections */
+        .shop-section {
+            padding: 90px 5% 90px;
+            text-align: center;
+            background: transparent; /* Allow watermark background through */
+        }
+
+        .shop-section.alt-bg {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(252, 252, 253, 0.8) 100%);
+            padding-bottom: 120px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        /* High-End Product Card UI */
+        .product-card {
+            background: var(--white);
+            overflow: hidden;
+            position: relative;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Best Seller Badge Overlay */
+        .bestseller-badge {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            background-color: var(--accent-gold);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            letter-spacing: 1.5px;
+            z-index: 10;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            background-color: #fcfcfc; 
+        }
+
+        .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-brand {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            height: 44px; /* Ensures text alignment remains uniform */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Premium Pricing Styles */
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .current-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .original-price {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            text-decoration: line-through;
+            font-weight: 300;
+        }
+
+        .add-to-bag {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--text-dark);
+            color: var(--white);
+            border: 1px solid var(--text-dark);
+            font-weight: 400;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all var(--transition-speed);
+        }
+
+        .add-to-bag:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--white);
+        }
+
+        /* Minimalist Footer */
+        footer {
+            background-color: var(--white);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 80px 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-bottom: 30px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero {
+                height: 65vh;
+            }
+            .hero-overlay-box {
+                padding: 30px 25px;
+            }
+            .hero-offer-heading {
+                font-size: 1.6rem;
+            }
+            .product-image {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimalist Announcement Bar -->
+    <div class="announcement-bar">
+        Complimentary Hydra Gift Set on orders over ₹2499
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="brand-logo">
+            <img src="WhatsApp Image 2026-06-17 at 10.19.41 AM.jpeg" alt="Lumera Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#skincare">SkinCare</a></li>
+                <li><a href="#bestsellers">Best Sellers</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#science">The Science</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <span>🔍</span>
+            <span>🤍</span>
+            <span id="cart-icon">🛍️ (0)</span>
+        </div>
+    </header>
+
+    <!-- Hero Banner with Integrated Launch Offer Details -->
+    <section class="hero">
+        <div class="hero-overlay-box">
+            <div class="hero-tagline">Welcome to Lumera</div>
+            <h1 class="hero-offer-heading">Reveal Your Timeless Glow</h1>
+            <p class="hero-offer-details">Enjoy 15% off your first ritual order. Use code: <strong>GLOW15</strong> at checkout.</p>
+            <a href="#bestsellers" class="hero-cta">Shop The Essentials</a>
+        </div>
+    </section>
+
+    <!-- Cinematic Video Section -->
+    <section class="video-showcase">
+        <h2 class="section-title">The Science of Glow</h2>
+        <p class="section-subtitle">Discover the clinically proven power of ocean-inspired hydration.</p>
+        <div class="video-container">
+            <video autoplay loop muted playsinline>
+                <source src="WhatsApp Video 2026-06-17 at 10.19.40 AM.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="our-story">
+        <div class="story-container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-tagline">Timeless Glow. Effortless Beauty.</div>
+            <p class="story-content">
+                Born in the lush, serene landscapes of <strong>Guwahati, Assam</strong>, Lumera was founded with a singular, unwavering goal: to harmonize the pristine purity of nature with advanced, clinical skincare science. Inspired by the rich biodiversity of the Northeast and the restorative power of ocean-mineral hydration, our formulations are meticulously crafted to repair, protect, and deeply nourish. We believe that true beauty shouldn't be complicated. Our mission is to provide you with sophisticated, clean essentials that honor your skin's natural balance, unveiling a radiant complexion that lasts.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Science Section -->
+    <section id="science" class="science-section">
+        <h2 class="section-title">The Science of Lumera</h2>
+        <p class="section-subtitle">Where clinical dermatology meets botanical synergy.</p>
+        
+        <div class="science-grid">
+            <div class="science-card">
+                <h3>Bio-Active Botanical Synergy</h3>
+                <p>We extract highly concentrated, resilient antioxidants from the indigenous flora of Assam, sourcing pure plant complexes that naturally target cellular repair and environment-induced stress defense.</p>
+            </div>
+            <div class="science-card">
+                <h3>Oceanic Micro-Hydration</h3>
+                <p>Utilizing high-affinity marine macrominerals, our formulas closely mirror the skin’s native structural components. This promotes optimized cellular water absorption down through the epidermal matrices.</p>
+            </div>
+            <div class="science-card">
+                <h3>Clinical Delivery Systems</h3>
+                <p>Pure ingredients require intelligent pathways. Our bio-engineered delivery agents encapsulate heavy actives like Niacinamide and Vitamin C, preventing surface oxidation for maximum epidermal stability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Showcase Section -->
+    <section id="bestsellers" class="shop-section">
+        <h2 class="section-title">The Best Sellers</h2>
+        <p class="section-subtitle">Our most coveted, award-winning skincare daily staples.</p>
+        
+        <div class="product-grid">
+            <!-- Best Seller Product 1 -->
+            <div class="product-card">
+                <span class="bestseller-badge">Best Seller</span>
+                <img src="WhatsApp Image 2026-06-17 at 10.20.46 AM (1).jpeg" alt="Vitamin C Serum" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">Lumera</div>
+                    <h3 class="product-title">Vitamin C + Hyaluronic Acid Serum</h3>
+                    <p class="product-desc">Advanced Brightening & Even Tone</p>
+                    <div class="price-container">
+                        <span class="current-price">₹1,299</span>
+                        <span class="original-price">₹1,625</span>
+                    </div>
+                </div>
+                <button class="add-to-bag" onclick="addToCart()">Add to Bag</button>
+            </div>
+
+            <!-- Best Seller Product 2 -->
+            <div class="product-card">
+                <span class="bestseller-badge">Best Seller</span>
+                <img src="WhatsApp Image 2026-06-17 at 10.20.46 AM (2).jpeg" alt="Intensive Moisturizer" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">Lumera</div>
+                    <h3 class="product-title">Intensive Hydra-Boost Moisturizer</h3>
+                    <p class="product-desc">Deep Nourishing & Balancing Formula</p>
+                    <div class="price-container">
+                        <span class="current-price">₹1,850</span>
+                        <span class="original-price">₹2,300</span>
+                    </div>
+                </div>
+                <button class="add-to-bag" onclick="addToCart()">Add to Bag</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Skincare Collection Section -->
+    <section id="skincare" class="shop-section alt-bg">
+        <h2 class="section-title">The Hydration Collection</h2>
+        <p class="section-subtitle">Purify, nourish, and protect with our signature formulations.</p>
+        
+        <div class="product-grid">
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="WhatsApp Image 2026-06-17 at 10.20.46 AM.jpeg" alt="Sunscreen Fluid" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">Lumera</div>
+                    <h3 class="product-title">Invisible Sunscreen Fluid SPF 50+</h3>
+                    <p class="product-desc">Ultra-lightweight & Hydrating</p>
+                    <div class="price-container">
+                        <span class="current-price">₹999</span>
+                        <span class="original-price">₹1,250</span>
+                    </div>
+                </div>
+                <button class="add-to-bag" onclick="addToCart()">Add to Bag</button>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="WhatsApp Image 2026-06-17 at 10.20.47 AM (1).jpeg" alt="Hydrating Cleanser" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">Lumera</div>
+                    <h3 class="product-title">Gentle Hydrating Cleanser</h3>
+                    <p class="product-desc">Purifying & Balancing Formula</p>
+                    <div class="price-container">
+                        <span class="current-price">₹750</span>
+                        <span class="original-price">₹950</span>
+                    </div>
+                </div>
+                <button class="add-to-bag" onclick="addToCart()">Add to Bag</button>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="WhatsApp Image 2026-06-17 at 10.20.47 AM.jpeg" alt="Niacinamide Serum" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">Lumera</div>
+                    <h3 class="product-title">Niacinamide + Zinc Serum</h3>
+                    <p class="product-desc">Blemish Control & Pore Refining</p>
+                    <div class="price-container">
+                        <span class="current-price">₹1,150</span>
+                        <span class="original-price">₹1,450</span>
+                    </div>
+                </div>
+                <button class="add-to-bag" onclick="addToCart()">Add to Bag</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="WhatsApp Image 2026-06-17 at 10.19.41 AM.jpeg" alt="Lumera Logo">
+        </div>
+        <p>Inspired by the ocean. Crafted for timeless beauty.</p>
+        <p style="margin-top: 10px; font-size: 0.75rem;">&copy; 2026 Lumera Skincare. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        let cartCount = 0;
+        
+        function addToCart() {
+            cartCount++;
+            const cartIcon = document.getElementById('cart-icon');
+            cartIcon.innerText = `🛍️ (${cartCount})`;
+            
+            cartIcon.style.transform = 'scale(1.1)';
+            cartIcon.style.color = 'var(--accent-gold)';
+            
+            setTimeout(() => {
+                cartIcon.style.transform = 'scale(1)';
+                cartIcon.style.color = 'var(--text-dark)';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
